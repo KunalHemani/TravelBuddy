@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "467715901519",
+    "project_id": "mcaflex-e3793",
+    "storage_bucket": "mcaflex-e3793.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467715901519:android:23e5781914073a7f48823a",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467715901519-k9p34a0ehlmal4kif6q26njsl5mjv0pd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app",
+            "certificate_hash": "54de3df3aac4f2f4df3c0919c50bdbf7d722a58e"
+          }
+        },
+        {
+          "client_id": "467715901519-hqu1oebf54a6og9qeg626l3a66momjj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATuap_uQFEfu-Zpou3dOzfCOnf-kXLzvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467715901519-hqu1oebf54a6og9qeg626l3a66momjj9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467715901519-s1es8k04emon6qpih12o90c5j80vkboa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mcaflex"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467715901519:android:d3f183c8ee6cf0df48823a",
+        "android_client_info": {
+          "package_name": "com.example.mcaflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467715901519-hqu1oebf54a6og9qeg626l3a66momjj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATuap_uQFEfu-Zpou3dOzfCOnf-kXLzvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467715901519-hqu1oebf54a6og9qeg626l3a66momjj9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467715901519-s1es8k04emon6qpih12o90c5j80vkboa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mcaflex"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
