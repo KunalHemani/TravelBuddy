@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:mcaflex/screens/home_s.dart';
 import 'package:mcaflex/screens/home_screen.dart';
 import 'package:mcaflex/screens/password_configuration/forget_password.dart';
 import 'package:mcaflex/screens/signup.dart';
@@ -70,6 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
 
                       TextFormField(
+                        obscureText: true,
                         decoration: const InputDecoration(
                             prefixIcon: Icon(Icons.password),
                             labelText: KTexts.password,
@@ -125,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeScreen()),
+                                  builder: (context) => HomePage()),
                             );
                           }
                               : null, // Disable button if checkbox not checked

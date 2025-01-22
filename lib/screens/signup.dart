@@ -7,6 +7,7 @@ import 'package:mcaflex/controller/signup_controller.dart';
 import 'package:mcaflex/screens/home_screen.dart';
 import 'package:mcaflex/screens/screen_widgets/form_divider.dart';
 import 'package:mcaflex/screens/screen_widgets/socialbuttons.dart';
+import 'package:mcaflex/screens/screen_widgets/verify_email.dart';
 import 'package:mcaflex/utils/constants/colors.dart';
 import 'package:mcaflex/utils/constants/sizes.dart';
 import 'package:mcaflex/utils/constants/text_strings.dart';
@@ -126,6 +127,7 @@ class SignupScreen extends StatelessWidget {
                     TextFormField(
                       controller: controller.password,
                       validator: (value) => KValidator.validateEmptyText('Password', value),
+                      obscureText: true,
                       // validator: (value) => KValidator.validatePassword(value),
                       decoration: InputDecoration(
                         labelText: KTexts.password,
@@ -192,7 +194,7 @@ class SignupScreen extends StatelessWidget {
                       child: ElevatedButton(
                         // onPressed: controller.signup,
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => VerifyEmailScreen()));
                         },
                         child: Text(KTexts.createAccount),
                       ),

@@ -25,11 +25,11 @@ class SplashScreen extends StatelessWidget {
             Align(
               alignment: Alignment.center,
               child: Text(
-                'ASPEN',
+                'TRAVEL BUDDY',
                 style: GoogleFonts.getFont(
                     'Kaushan Script',
                     fontWeight: FontWeight.bold,
-                    fontSize: 80,
+                    fontSize: 70,
                     color: Colors.white
                 ),
               ),
