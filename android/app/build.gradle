@@ -27,10 +27,15 @@ android {
         applicationId = "com.example.mcaflex"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
-        targetSdk = flutter.targetSdkVersion
-        versionCode = flutter.versionCode
-        versionName = flutter.versionName
+//        minSdk = flutter.minSdkVersion
+//        targetSdk = flutter.targetSdkVersion
+//        versionCode = flutter.versionCode
+//        versionName = flutter.versionName
+
+        minSdkVersion 23 // Increase this to 23
+        targetSdkVersion 33 // Keep this updated to the latest stable version
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {

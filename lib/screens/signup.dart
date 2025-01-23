@@ -1,21 +1,97 @@
-// signup.dart
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:mcaflex/controller/signup_controller.dart';
-import 'package:mcaflex/screens/home_screen.dart';
+import 'package:mcaflex/screens/home_s.dart';
 import 'package:mcaflex/screens/screen_widgets/form_divider.dart';
 import 'package:mcaflex/screens/screen_widgets/socialbuttons.dart';
 import 'package:mcaflex/screens/screen_widgets/verify_email.dart';
+import 'package:mcaflex/services/database.dart';
+import 'package:mcaflex/services/shared_pref.dart';
 import 'package:mcaflex/utils/constants/colors.dart';
 import 'package:mcaflex/utils/constants/sizes.dart';
 import 'package:mcaflex/utils/constants/text_strings.dart';
 import 'package:mcaflex/utils/helper_functions.dart';
 import 'package:mcaflex/utils/validator/validation.dart';
+import 'package:random_string/random_string.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+
+  // String email = "", password = "", name = "";
+  // TextEditingController namecontroller = new TextEditingController();
+  // TextEditingController passwordcontroller = new TextEditingController();
+  // TextEditingController mailcontroller = new TextEditingController();
+  //
+  // registration() async {
+  //   if (password != null &&
+  //       namecontroller.text != "" &&
+  //       mailcontroller.text != "")
+  //   {
+  //     try
+  //     {
+  //       UserCredential userCredential = await FirebaseAuth.instance
+  //           .createUserWithEmailAndPassword (email: email, password: password);
+  //
+  //       String id = randomAlphaNumeric(10);
+  //       Map<String, dynamic> userInfoMap = {
+  //         "Name": namecontroller.text,
+  //         "Email" : mailcontroller.text,
+  //         "Image" : "https://cdn.wallpapersafari.com/88/4/uyMe8v.jpg",
+  //         "Id" : id
+  //       };
+  //
+  //       await SharedpreferenceHelper().saveUserDisplayName(namecontroller.text);
+  //       await SharedpreferenceHelper().saveUserEmail(mailcontroller.text);
+  //       await SharedpreferenceHelper().saveUserId(id);
+  //       await SharedpreferenceHelper().saveUserImage("https://cdn.wallpapersafari.com/88/4/uyMe8v.jpg");
+  //
+  //       await DatabaseMethods().addUserDetails(userInfoMap, id).then((value) {
+  //         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  //           backgroundColor: Colors.green,
+  //           content: Text(
+  //             "Registered Successfully",
+  //             style: TextStyle(
+  //                 fontSize: 20.0,
+  //                 color: Colors.green
+  //             ),
+  //           ),
+  //         ));
+  //         Navigator.pushReplacement(context,
+  //             MaterialPageRoute(builder: (context) => HomePage()));
+  //       });
+  //     } on FirebaseAuthException catch (e) {
+  //       if (e.code == 'weak-password') {
+  //         ScaffoldMessenger.of(context).showSnackBar (
+  //             SnackBar(
+  //                 backgroundColor: Colors.orangeAccent,
+  //                 content: Text(
+  //                   "Password Provided is too Weak",
+  //                   style: TextStyle(fontSize: 18.0),
+  //                 )
+  //             )
+  //         ); // Text // SnackBar
+  //       } else if (e.code == "email-already-in-use") {
+  //         ScaffoldMessenger.of(context).showSnackBar
+  //           (
+  //             SnackBar
+  //               (
+  //                 backgroundColor: Colors.orangeAccent,
+  //                 content: Text
+  //                   (
+  //                   "Account Already exists",
+  //                   style: TextStyle(fontSize: 18.0),
+  //                 )
+  //             )
+  //         ); // Text // SnackBar
 
   @override
   Widget build(BuildContext context) {
@@ -45,49 +121,49 @@ class SignupScreen extends StatelessWidget {
                 key: controller.signupFormkey,
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextFormField(
-                            controller: controller.firstName,
-                            validator: (value) => KValidator.validateEmptyText('First Name', value),
-                            // validator: (value) => KValidator.validateName(value),
-                            decoration: InputDecoration(
-                              labelText: KTexts.firstName,
-                              prefixIcon: Icon(Iconsax.user),
-                            ),
-                          ),
-                        ),
-
-                        SizedBox(
-                          width: KSizes.spaceBtwInputFields,
-                        ),
-
-                        Expanded(
-                          child: TextFormField(
-                            controller: controller.lastName,
-                            validator: (value) => KValidator.validateEmptyText('last Name', value),
-                            // validator: (value) => KValidator.validateName(value),
-                            decoration: InputDecoration(
-                              labelText: KTexts.lastName,
-                              prefixIcon: Icon(Iconsax.user),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    SizedBox(
-                      height: KSizes.spaceBtwInputFields,
-                    ),
+                    // Row(
+                    //   children: [
+                    //     Expanded(
+                    //       child: TextFormField(
+                    //         controller: controller.firstName,
+                    //         validator: (value) => KValidator.validateEmptyText('First Name', value),
+                    //         // validator: (value) => KValidator.validateName(value),
+                    //         decoration: InputDecoration(
+                    //           labelText: KTexts.firstName,
+                    //           prefixIcon: Icon(Iconsax.user),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //
+                    //     SizedBox(
+                    //       width: KSizes.spaceBtwInputFields,
+                    //     ),
+                    //
+                    //     Expanded(
+                    //       child: TextFormField(
+                    //         controller: controller.lastName,
+                    //         validator: (value) => KValidator.validateEmptyText('last Name', value),
+                    //         // validator: (value) => KValidator.validateName(value),
+                    //         decoration: InputDecoration(
+                    //           labelText: KTexts.lastName,
+                    //           prefixIcon: Icon(Iconsax.user),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
+                    //
+                    // SizedBox(
+                    //   height: KSizes.spaceBtwInputFields,
+                    // ),
 
                     // Username
                     TextFormField(
                       controller: controller.username,
-                      validator: (value) => KValidator.validateEmptyText('Username', value),
+                      validator: (value) => KValidator.validateEmptyText('Name', value),
                       // validator: (value) => KValidator.validateUsername(value),
                       decoration: InputDecoration(
-                          labelText: KTexts.username,
+                          labelText: "Name",
                           prefixIcon: Icon(Iconsax.user_edit)),
                     ),
 
@@ -110,18 +186,18 @@ class SignupScreen extends StatelessWidget {
                     ),
 
                     // Phone Number
-                    TextFormField(
-                      controller: controller.phoneNumber,
-                      validator: (value) => KValidator.validateEmptyText('Phone Number', value),
-                      // validator: (value) => KValidator.validatePhoneNumber(value),
-                      decoration: InputDecoration(
-                          labelText: KTexts.phoneNo,
-                          prefixIcon: Icon(Iconsax.call)),
-                    ),
-
-                    SizedBox(
-                      height: KSizes.spaceBtwInputFields,
-                    ),
+                    // TextFormField(
+                    //   controller: controller.phoneNumber,
+                    //   validator: (value) => KValidator.validateEmptyText('Phone Number', value),
+                    //   // validator: (value) => KValidator.validatePhoneNumber(value),
+                    //   decoration: InputDecoration(
+                    //       labelText: KTexts.phoneNo,
+                    //       prefixIcon: Icon(Iconsax.call)),
+                    // ),
+                    //
+                    // SizedBox(
+                    //   height: KSizes.spaceBtwInputFields,
+                    // ),
 
                     // Password
                     TextFormField(

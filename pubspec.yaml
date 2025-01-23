@@ -51,12 +51,13 @@ dependencies:
   get_storage: ^2.1.1
 
   # Firebase:
-  firebase_core: ^3.10.1
-  firebase_auth: ^5.4.1
-  cloud_firestore: ^5.6.2
-  image_picker: ^1.1.2
-  firebase_storage: ^12.4.1
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
+  image_picker:
+  firebase_storage:
   random_string: ^2.3.1
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
